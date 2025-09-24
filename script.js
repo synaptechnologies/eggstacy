@@ -162,8 +162,15 @@ const overlay = document.getElementById('overlay');
 const notification = document.getElementById('notification');
 const distanceInfo = document.getElementById('distance-info');
 
+// Get current page name
+function getCurrentPage() {
+    const path = window.location.pathname;
+    const page = path.split('/').pop().split('.')[0];
+    return page || 'index'; // Default to 'index' if path is '/'
+}
+
 // Initialize the menu if we're on the menu page
-if (window.location.pathname.includes('menu.html')) {
+if (getCurrentPage() === 'menu') {
     initMenu();
 }
 
@@ -190,6 +197,8 @@ function initMenu() {
 
 // Show menu items for a specific category
 function showMenuItems(category) {
+    if (!menuItemsContainer) return;
+    
     menuItemsContainer.innerHTML = '';
     
     const items = menuData[category];
@@ -273,9 +282,11 @@ function findMenuItemById(id) {
 function updateCartUI() {
     // Update cart count
     const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
-    cartCountElement.textContent = totalItems;
+    if (cartCountElement) cartCountElement.textContent = totalItems;
     
     // Update cart items
+    if (!cartItemsContainer) return;
+    
     if (cart.length === 0) {
         cartItemsContainer.innerHTML = `
             <div class="empty-cart">
@@ -293,7 +304,7 @@ function updateCartUI() {
     
     // Update cart total
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    cartTotalElement.textContent = `₵${total.toFixed(2)}`;
+    if (cartTotalElement) cartTotalElement.textContent = `₵${total.toFixed(2)}`;
 }
 
 // Create cart item element
@@ -395,14 +406,16 @@ function orderViaWhatsApp() {
     // Clear cart after ordering
     cart = [];
     updateCartUI();
-    cartSidebar.classList.remove('active');
-    overlay.classList.remove('active');
+    if (cartSidebar) cartSidebar.classList.remove('active');
+    if (overlay) overlay.classList.remove('active');
     
     showNotification('Order sent via WhatsApp!');
 }
 
 // Show notification
 function showNotification(message) {
+    if (!notification) return;
+    
     notification.textContent = message;
     notification.classList.add('show');
     
@@ -424,7 +437,7 @@ if (mobileMenuBtn) {
 // Close mobile menu when clicking on a link
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
+        if (navLinks) navLinks.classList.remove('active');
     });
 });
 
@@ -434,23 +447,23 @@ const closeCartBtn = document.getElementById('close-cart');
 
 if (cartIcon) {
     cartIcon.addEventListener('click', () => {
-        cartSidebar.classList.add('active');
-        overlay.classList.add('active');
+        if (cartSidebar) cartSidebar.classList.add('active');
+        if (overlay) overlay.classList.add('active');
     });
 }
 
 if (closeCartBtn) {
     closeCartBtn.addEventListener('click', () => {
-        cartSidebar.classList.remove('active');
-        overlay.classList.remove('active');
+        if (cartSidebar) cartSidebar.classList.remove('active');
+        if (overlay) overlay.classList.remove('active');
     });
 }
 
 if (overlay) {
     overlay.addEventListener('click', () => {
-        cartSidebar.classList.remove('active');
-        overlay.classList.remove('active');
-        navLinks.classList.remove('active');
+        if (cartSidebar) cartSidebar.classList.remove('active');
+        if (overlay) overlay.classList.remove('active');
+        if (navLinks) navLinks.classList.remove('active');
     });
 }
 
@@ -540,11 +553,12 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(checkRestaurantStatus, 60000);
     
     // Get user location for distance calculation if on home or about page
-    if (window.location.pathname.includes('index.html') || window.location.pathname.includes('about.html')) {
+    const currentPage = getCurrentPage();
+    if (currentPage === 'index' || currentPage === 'about') {
         getUserLocation();
     }
     
-    // Display branch info in cart
+    // Display branch info in cart (on all pages)
     displayBranchInfoInCart();
 });
 
@@ -556,6 +570,8 @@ const branchLocation = {
 
 // Get user location
 function getUserLocation() {
+    if (!distanceInfo) return;
+    
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             position => {
@@ -567,15 +583,11 @@ function getUserLocation() {
                 calculateDistance(userLocation, branchLocation);
             },
             error => {
-                if (distanceInfo) {
-                    distanceInfo.innerHTML = '<p>Unable to get your location. Please enable location services.</p>';
-                }
+                distanceInfo.innerHTML = '<p>Unable to get your location. Please enable location services.</p>';
             }
         );
     } else {
-        if (distanceInfo) {
-            distanceInfo.innerHTML = '<p>Geolocation is not supported by your browser.</p>';
-        }
+        distanceInfo.innerHTML = '<p>Geolocation is not supported by your browser.</p>';
     }
 }
 
