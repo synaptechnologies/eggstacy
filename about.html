@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Eggstacy</title>
+    <meta name="description" content="Learn about Eggstacy, Ghana's go-to spot for egg sandwiches and tasty fast food in Osu.">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/eggstacy.jpg" type="image/x-icon">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img class="logoimg" src="images/eggstacy.jpg" alt="">
+                    <span>Eggstacy</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                </ul>
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <div id="nearest-branch"></div>
+            <h2>Your Order</h2>
+            <button class="close-cart" id="close-cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <p>Your cart is empty</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total">₵0.00</span>
+            </div>
+            <div class="cart-actions">
+                <button class="btn btn-secondary" id="clear-cart">Clear Cart</button>
+                <button class="btn whatsapp-btn" id="order-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+    
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+    
+    <!-- About Section -->
+    <section class="about-page section">
+        <div class="container">
+            <h1 class="page-title">About Eggstacy</h1>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Our Story</h2>
+                    <p>Welcome to Eggstacy, Ghana's go-to spot for egg sandwiches & tasty fast food! We specialize in delicious egg burgers, loaded fries, and other fast food favorites that are fresh, fast, and satisfying.</p>
+                    <p>Founded with a passion for creating the perfect egg sandwich, Eggstacy has quickly become a favorite among students, professionals, and food lovers in Osu and beyond. Our menu is perfect for late-night cravings and midday meals, offering a youthful, fun, and bold dining experience.</p>
+                    <p>At Eggstacy, we believe that great food should be accessible to everyone. That's why we've created a menu that's not only delicious but also affordable, without compromising on quality or taste.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Eggstacy Restaurant">
+                </div>
+            </div>
+            
+            <div class="mission-vision">
+                <div class="mission-box">
+                    <h3>Our Mission</h3>
+                    <p>To serve the most delicious and satisfying egg-based fast food in Ghana, using fresh ingredients and innovative recipes that keep our customers coming back for more.</p>
+                </div>
+                <div class="vision-box">
+                    <h3>Our Vision</h3>
+                    <p>To become the most recognized fast food brand in Ghana, known for our quality, consistency, and exceptional customer experience.</p>
+                </div>
+            </div>
+            
+            <div class="values-section">
+                <h2>Our Values</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Fresh Ingredients</h3>
+                        <p>We source the freshest ingredients daily to ensure the highest quality in every dish we serve.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Fast Service</h3>
+                        <p>We understand that you're hungry, so we prioritize quick service without compromising on quality.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Customer Satisfaction</h3>
+                        <p>Your satisfaction is our top priority. We go above and beyond to ensure you have a great experience.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="location-section">
+                <h2>Find Us</h2>
+                <div class="location-content">
+                    <div class="location-info">
+                        <h3>Osu Branch</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Osu, Accra, Ghana</p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:+233123456789">+233 12 345 6789</a></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:info@eggstacy.com">info@eggstacy.com</a></p>
+                        <p><i class="fas fa-clock"></i> Monday - Sunday: 10:00 AM - 9:00 PM</p>
+                        
+                        <div class="distance-info" id="distance-info">
+                            <p>Calculating your distance from our location...</p>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.0582130646035!2d-0.1824141!3d5.5583903999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf910022b5f70b%3A0xfbe94de9f05f6334!2sEggstacy%20Fast%20Foods!5e0!3m2!1sen!2sgh!4v1758697129765!5m2!1sen!2sgh" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About Eggstacy</h3>
+                    <p>Ghana's go-to spot for egg sandwiches & tasty fast food. Fresh, fast & satisfying — perfect for late-night & midday meals.</p>
+                    <div class="social-links">
+                        <a href="#" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Opening Hours</h3>
+                    <ul class="footer-links">
+                        <li>Monday - Sunday: 10:00 AM - 9:00 PM</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Osu, Accra, Ghana</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+233594681767">+233 59 468 1767</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@eggstacy.com">info@eggstacy.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Eggstacy. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

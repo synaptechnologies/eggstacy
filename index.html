@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eggstacy - Ghana's Go-to Spot for Egg Sandwiches</title>
+    <meta name="description" content="Eggstacy offers delicious egg burgers, loaded fries, and tasty fast food in Osu, Ghana. Order online for pickup or delivery.">
+    <meta name="keywords" content="Eggstacy, egg burgers, loaded fries, fast food, Osu, Ghana">
+    <meta name="author" content="Eggstacy Restaurant">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Eggstacy - Ghana's Go-to Spot for Egg Sandwiches">
+    <meta property="og:description" content="Eggstacy offers delicious egg burgers, loaded fries, and tasty fast food in Osu, Ghana.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://eggstacy.com">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/eggstacy.jpg" type="image/x-icon">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img class="logoimg" src="images/eggstacy.jpg" alt="">
+                    <span>Eggstacy</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <div id="nearest-branch"></div>
+            <h2>Your Order</h2>
+            <button class="close-cart" id="close-cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <p>Your cart is empty</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total">₵0.00</span>
+            </div>
+            <div class="cart-actions">
+                <button class="btn btn-secondary" id="clear-cart">Clear Cart</button>
+                <button class="btn whatsapp-btn" id="order-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Order via WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+    
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Eggstacy</h1>
+                <p class="hero-tagline">Ghana's Go-to Spot for Egg Sandwiches</p>
+                <p class="hero-description">Fresh, fast & satisfying — perfect for late-night & midday meals</p>
+                <a href="menu.html" class="btn btn-primary">View Our Menu</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Special Promo Section -->
+    <section class="special-offer section">
+        <div class="container">
+            <h2 class="section-title">Special Promo</h2>
+            <div class="special-offer-card">
+                <div class="special-offer-image">
+                    <img src="https://images.unsplash.com/photo-1576107616104-496e48092fac?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Student Pack Loaded Fries">
+                </div>
+                <div class="special-offer-content">
+                    <span class="special-offer-badge">LIMITED TIME</span>
+                    <h3 class="special-offer-title">Student Pack Loaded Fries</h3>
+                    <p>Fries, Chicken tenders, cheese, gravy, eggs</p>
+                    <p><strong>Special Price: ₵80</strong></p>
+                    <button class="add-to-cart-btn special-offer-btn" data-id="student-pack">
+                        <i class="fas fa-cart-plus"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Products Section -->
+    <section class="featured-products section">
+        <div class="container">
+            <h2 class="section-title">Our Specialties</h2>
+            <div class="products-grid">
+                <!-- Featured Product 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1576107616104-496e48092fac?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Loaded Fries">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-badge">BESTSELLER</span>
+                        <h3 class="product-title">Loaded Fries</h3>
+                        <p>Fries, Chicken tenders, cheese, gravy, eggs</p>
+                        <div class="product-footer">
+                            <span class="product-price">₵75</span>
+                            <button class="add-to-cart-btn" data-id="loaded-fries-1">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Featured Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Egg Burger">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-badge">SIGNATURE</span>
+                        <h3 class="product-title">Egg Burger</h3>
+                        <p>Delicious egg burger with fresh ingredients</p>
+                        <div class="product-footer">
+                            <span class="product-price">₵55</span>
+                            <button class="add-to-cart-btn" data-id="egg-burger">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Featured Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Milkshake">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-badge">REFRESHING</span>
+                        <h3 class="product-title">Milk Shakes</h3>
+                        <p>Vanilla, Chocolate, or Strawberry</p>
+                        <div class="product-footer">
+                            <span class="product-price">₵40</span>
+                            <button class="add-to-cart-btn" data-id="milkshake">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Location Section -->
+    <section class="location-section section">
+        <div class="container">
+            <h2 class="section-title">Find Us</h2>
+            <div class="location-content">
+                <div class="location-info">
+                    <h3>Visit Our Restaurant</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Osu, Accra, Ghana</p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+233594681767">+233 59 468 1767</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@eggstacy.com">info@eggstacy.com</a></p>
+                    <p><i class="fas fa-clock"></i> Monday - Sunday: 10:00 AM - 9:00 PM</p>
+                    
+                    <div class="distance-info" id="distance-info">
+                        <p>Calculating your distance from our location...</p>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.0582130646035!2d-0.1824141!3d5.5583903999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf910022b5f70b%3A0xfbe94de9f05f6334!2sEggstacy%20Fast%20Foods!5e0!3m2!1sen!2sgh!4v1758697129765!5m2!1sen!2sgh" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials section">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The best egg burgers in Accra! Perfect for a late-night snack after work."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Kwame Asante</h4>
+                            <p>Regular Customer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The loaded fries are absolutely amazing! Worth every cedi."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Abena Mensah</h4>
+                            <p>Food Blogger</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Fast service and delicious food. Eggstacy is my go-to spot for lunch breaks."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Kojo Johnson</h4>
+                            <p>Student</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About Eggstacy</h3>
+                    <p>Ghana's go-to spot for egg sandwiches & tasty fast food. Fresh, fast & satisfying — perfect for late-night & midday meals.</p>
+                    <div class="social-links">
+                        <a href="#" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Opening Hours</h3>
+                    <ul class="footer-links">
+                        <li>Monday - Sunday: 10:00 AM - 9:00 PM</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Osu, Accra, Ghana</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+233594681767">+233 59 468 1767</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@eggstacy.com">info@eggstacy.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Eggstacy. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
